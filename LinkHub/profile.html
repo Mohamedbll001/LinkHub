@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile — LinkHub</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="" class="logo-img" />
+        <b>Link<span>Hub</span></b>
+      </a>
+      <a href="profile.html" class="side-link active"><span>👤</span> Profile</a>
+      <a href="dashboard.html" class="side-link"><span>🔗</span> Links</a>
+      <a href="store.html" class="side-link"><span>🛒</span> Store</a>
+      <a href="community.html" class="side-link"><span>👥</span> Community</a>
+      <a href="profile.html#appearance" class="side-link"><span>⚙️</span> Settings</a>
+      <a href="#" class="side-link mobile-only" id="logoutLink"><span>🚪</span> Logout</a>
+
+      <div class="side-user glass">
+        <div class="avatar" id="sideAvatar"></div>
+        <div class="info">
+          <strong id="sideName"></strong>
+          <small id="sideHandle"></small>
+        </div>
+        <button type="button" class="icon-btn" id="logoutBtn" title="Logout">⎋</button>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main">
+      <header class="page-head">
+        <div>
+          <h1>Edit Profile</h1>
+          <p class="muted">Customize how your public page looks.</p>
+        </div>
+        <a href="#" class="btn btn-outline" id="viewPageLink">View my page</a>
+      </header>
+
+      <div class="profile-layout">
+
+        <!-- ---------- FORM ---------- -->
+        <form id="profileForm" novalidate>
+
+          <section class="card glass">
+            <h2>Cover &amp; avatar</h2>
+
+            <!-- الغلاف + الصورة الشخصية تتداخل فوقه -->
+            <div class="cover-box">
+              <div class="cover" id="coverPreview"></div>
+              <div class="avatar avatar-lg cover-avatar" id="avatarPreview"></div>
+            </div>
+
+            <div class="upload-row">
+              <div class="upload-group">
+                <span class="muted">Cover</span>
+                <input type="file" id="coverInput" accept="image/*" class="hidden" />
+                <label for="coverInput" class="btn btn-outline btn-sm">Change cover</label>
+                <button type="button" class="btn btn-ghost btn-sm" id="removeCover">Remove</button>
+              </div>
+              <div class="upload-group">
+                <span class="muted">Avatar</span>
+                <input type="file" id="avatarInput" accept="image/*" class="hidden" />
+                <label for="avatarInput" class="btn btn-outline btn-sm">Change avatar</label>
+                <button type="button" class="btn btn-ghost btn-sm" id="removeAvatar">Remove</button>
+              </div>
+            </div>
+            <p class="muted small">Images are resized automatically so they fit in your browser storage.</p>
+          </section>
+
+          <section class="card glass">
+            <h2>Basic info</h2>
+            <div class="field">
+              <label for="usernameInput">Username</label>
+              <input type="text" id="usernameInput" maxlength="20" autocomplete="off" />
+              <small class="hint"><span>Letters, numbers and _ (3–20)</span></small>
+              <small class="error" id="usernameError"></small>
+            </div>
+            <div class="field">
+              <label for="bioInput">Bio</label>
+              <textarea id="bioInput" maxlength="160" placeholder="Tell people who you are..."></textarea>
+              <small class="hint"><span></span><span id="bioCount">0/160</span></small>
+            </div>
+          </section>
+
+          <section class="card glass" id="appearance">
+            <h2>Theme</h2>
+            <div class="theme-grid" id="themeGrid"></div>
+            <p class="muted small">Your theme is used on your dashboard and your public page.</p>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+
+        <!-- ---------- LIVE PREVIEW ---------- -->
+        <aside class="preview">
+          <p class="muted preview-label">Live preview</p>
+          <div class="preview-card glass">
+            <div class="cover" id="pvCover"></div>
+            <div class="avatar avatar-xl pv-avatar" id="pvAvatar"></div>
+            <h3 id="pvName"></h3>
+            <p class="muted" id="pvBio"></p>
+            <div class="pv-links" id="pvLinks"></div>
+          </div>
+        </aside>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

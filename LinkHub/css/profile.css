@@ -1,0 +1,79 @@
+/* =====================================================
+   profile.css — صفحة تعديل البروفايل
+   ===================================================== */
+
+/* عمودان: الفورم + المعاينة الحية */
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- Cover + Avatar ---------- */
+.cover-box { position: relative; margin-bottom: 60px; }
+.cover-box .cover { height: 170px; }
+.cover-avatar {
+  position: absolute;
+  left: 24px;
+  bottom: -48px; /* ينزل نصفه تقريباً خارج الغلاف */
+  border: 4px solid var(--bg);
+}
+.upload-row { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 12px; }
+.upload-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.upload-group label { cursor: pointer; }
+.small { font-size: 0.8rem; }
+
+/* ---------- Theme picker ---------- */
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-bottom: 14px; }
+.theme-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 8px;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition), color var(--transition);
+}
+.theme-swatch:hover { transform: translateY(-3px); color: var(--text); }
+.theme-swatch.active { border-color: var(--text); color: var(--text); }
+/* كل زر يحمل data-theme الخاص به، لذلك يرى --primary و --secondary الخاصين بثيمه */
+.swatch-dot {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.5);
+}
+
+.form-actions { display: flex; justify-content: flex-end; }
+
+/* ---------- Live preview ---------- */
+.preview { position: sticky; top: 24px; }
+.preview-label { font-size: 0.8rem; margin-bottom: 8px; }
+.preview-card { padding: 14px 14px 24px; text-align: center; }
+.preview-card .cover { height: 120px; border-radius: 14px; }
+.pv-avatar { margin: -55px auto 10px; border: 4px solid var(--bg-soft); }
+.preview-card h3 { font-size: 1.15rem; }
+.preview-card > p { font-size: 0.88rem; margin: 6px 12px 16px; }
+.pv-links { display: flex; flex-direction: column; gap: 10px; padding: 0 8px; }
+.pv-link {
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.pv-empty { font-size: 0.82rem; color: var(--text-muted); }
+
+@media (max-width: 1100px) {
+  .profile-layout { grid-template-columns: 1fr; }
+  .preview { position: static; order: -1; }
+}

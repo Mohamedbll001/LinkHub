@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- يجعل الموقع يتكيف مع الجوال -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LinkHub: one page for your links, community and store." />
+  <title>LinkHub — Your Links. Your Community. Your Store.</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+  <!-- نضيف كلاس "js" مبكراً: إذا اشتغل JavaScript نُخفي العناصر .reveal ثم نُظهرها عند السكرول.
+       وإذا لم يشتغل JS تبقى كل العناصر ظاهرة (الصفحة لا تنكسر) -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="LinkHub logo" class="logo-img" />
+        <b>Link<span>Hub</span></b>
+      </a>
+
+      <!-- زر القائمة: يظهر فقط في الجوال (CSS) -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- القائمة: في الشاشات الكبيرة سطر واحد، وفي الجوال لوحة تنزل من الأعلى -->
+      <div class="nav-menu" id="navMenu">
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#themes">Themes</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <!-- نبدّل محتوى هذا div بالـ JavaScript حسب حالة تسجيل الدخول -->
+        <div class="nav-actions" id="navActions">
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="register.html" class="btn btn-primary">Create Account</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <span class="badge glass fade-up">✨ The all-in-one platform for creators</span>
+          <h1 class="fade-up delay-1">
+            One hub for your
+            <!-- هذه الكلمة تتبدل كل ثانيتين بالـ JavaScript -->
+            <span class="gradient-text rotating" id="rotatingWord">links</span>
+          </h1>
+          <p class="fade-up delay-1">
+            Share all your links, build an audience, and sell your digital
+            products from a single beautiful page.
+          </p>
+          <div class="hero-buttons fade-up delay-2">
+            <a href="register.html" class="btn btn-primary">Create Account</a>
+            <a href="login.html" class="btn btn-outline">Login</a>
+          </div>
+        </div>
+
+        <!-- معاينة صفحة المبدع (HTML + CSS فقط، بدون صور) -->
+        <div class="hero-visual fade-up delay-2" aria-hidden="true">
+          <div class="phone glass">
+            <div class="phone-cover"></div>
+            <div class="phone-avatar">M</div>
+            <h3>@mohamed</h3>
+            <p>Designer &amp; developer</p>
+            <div class="phone-link">Instagram</div>
+            <div class="phone-link">YouTube</div>
+            <div class="phone-link">Portfolio</div>
+          </div>
+          <div class="chip chip-1 glass">❤️ 248 likes</div>
+          <div class="chip chip-2 glass">🛒 New sale</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ STATS (الأرقام تُحسب بالـ JS) ============ -->
+    <section class="container">
+      <div class="stats glass reveal">
+        <div class="stat"><strong><span data-count="4">0</span></strong><span>tools in one</span></div>
+        <div class="stat"><strong><span data-count="6">0</span>+</strong><span>link types</span></div>
+        <div class="stat"><strong><span data-count="5">0</span></strong><span>color themes</span></div>
+        <div class="stat"><strong><span data-count="100">0</span>%</strong><span>free to start</span></div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title reveal">Everything a creator needs</h2>
+        <div class="features-grid">
+
+          <article class="feature-card glass reveal">
+            <div class="feature-icon">🎨</div>
+            <h3>Create your page</h3>
+            <p>Pick a theme, add your photo, cover and bio, and get your own public page in minutes.</p>
+          </article>
+
+          <article class="feature-card glass reveal">
+            <div class="feature-icon">🔗</div>
+            <h3>Share your links</h3>
+            <p>Instagram, TikTok, YouTube, GitHub, Portfolio... all in one place.</p>
+          </article>
+
+          <article class="feature-card glass reveal">
+            <div class="feature-icon">👥</div>
+            <h3>Build your community</h3>
+            <p>Post updates, get likes and comments, and grow with other creators.</p>
+          </article>
+
+          <article class="feature-card glass reveal">
+            <div class="feature-icon">🛒</div>
+            <h3>Sell your products</h3>
+            <p>Ebooks, designs, templates, courses or services: add them to your store.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how" id="how">
+      <div class="container">
+        <h2 class="section-title reveal">Up and running in 3 steps</h2>
+        <div class="steps">
+          <div class="step glass reveal">
+            <span class="step-number">1</span>
+            <h3>Create your account</h3>
+            <p>Sign up with your email and choose your unique username.</p>
+          </div>
+          <div class="step glass reveal">
+            <span class="step-number">2</span>
+            <h3>Customize your page</h3>
+            <p>Add your links, photo, cover, bio and pick a theme you love.</p>
+          </div>
+          <div class="step glass reveal">
+            <span class="step-number">3</span>
+            <h3>Share it everywhere</h3>
+            <p>Put your LinkHub page in your bio and start growing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THEMES (تجربة حيّة: نضغط فيتغير لون الموقع كله) ============ -->
+    <section class="themes" id="themes">
+      <div class="container">
+        <div class="themes-box glass reveal">
+          <h2>Make it yours</h2>
+          <p class="muted">Pick a theme and watch this whole page change colors.</p>
+          <!-- الأزرار تُبنى بالـ JavaScript من قائمة THEMES في storage.js -->
+          <div class="theme-buttons" id="themeButtons"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (accordion) ============ -->
+    <section class="faq" id="faq">
+      <div class="container faq-container">
+        <h2 class="section-title reveal">Frequently asked questions</h2>
+
+        <div class="faq-item glass reveal">
+          <button class="faq-question" aria-expanded="false">
+            Is LinkHub free?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Yes. You can create your page, add links and open your store for free.</p></div>
+        </div>
+
+        <div class="faq-item glass reveal">
+          <button class="faq-question" aria-expanded="false">
+            Where is my data saved?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>In this first version everything is saved in your browser (LocalStorage), so no server is needed.</p></div>
+        </div>
+
+        <div class="faq-item glass reveal">
+          <button class="faq-question" aria-expanded="false">
+            What can I sell in my store?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Ebooks, designs, templates, courses or services. Add an image, a description and a price.</p></div>
+        </div>
+
+        <div class="faq-item glass reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can I change my look later?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Anytime. Change your theme, avatar, cover, bio and links from your dashboard.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="container">
+      <div class="cta glass reveal">
+        <h2>Ready to build your creator hub?</h2>
+        <a href="register.html" class="btn btn-primary">Get Started — it's free</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.png" alt="" class="logo-img" />
+          <b>Link<span>Hub</span></b>
+        </a>
+        <p class="muted">Your links, community and store in one place.</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </div>
+    <p class="copyright">© 2026 LinkHub — Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <!-- زر العودة للأعلى: يظهر بعد السكرول -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ترتيب الملفات مهم: storage.js أولاً لأن landing.js يستعمل دواله -->
+  <script src="js/storage.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+section[id] { scroll-margin-top: 80px; }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store — LinkHub</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/store.css" />
+</head>
+<body>
+  <!--
+    نفس الصفحة لها وضعان (يحدده store.js من الرابط):
+    - store.html            -> وضع المالك (owner): إضافة/تعديل/حذف
+    - store.html?u=mohamed  -> وضع الزائر (public): عرض + زر Buy
+    العناصر بكلاس owner-only تختفي عند الزائر، و public-only تظهر عنده فقط.
+  -->
+
+  <!-- ============ NAVBAR (للزائر فقط) ============ -->
+  <header class="navbar public-only">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="" class="logo-img" />
+        <b>Link<span>Hub</span></b>
+      </a>
+      <nav class="nav-actions">
+        <a href="#" id="backToPage" class="btn btn-outline btn-sm">Creator page</a>
+        <a href="login.html" id="navAction" class="btn btn-primary btn-sm">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR (للمالك فقط) ============ -->
+    <aside class="sidebar owner-only">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="" class="logo-img" />
+        <b>Link<span>Hub</span></b>
+      </a>
+      <a href="profile.html" class="side-link"><span>👤</span> Profile</a>
+      <a href="dashboard.html" class="side-link"><span>🔗</span> Links</a>
+      <a href="store.html" class="side-link active"><span>🛒</span> Store</a>
+      <a href="community.html" class="side-link"><span>👥</span> Community</a>
+      <a href="profile.html#appearance" class="side-link"><span>⚙️</span> Settings</a>
+      <a href="#" class="side-link mobile-only" id="logoutLink"><span>🚪</span> Logout</a>
+
+      <div class="side-user glass">
+        <div class="avatar" id="sideAvatar"></div>
+        <div class="info">
+          <strong id="sideName"></strong>
+          <small id="sideHandle"></small>
+        </div>
+        <button type="button" class="icon-btn" id="logoutBtn" title="Logout">⎋</button>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main">
+
+      <!-- رأس المتجر للزائر: غلاف + صورة + اسم -->
+      <section class="store-header public-only">
+        <div class="cover" id="storeCover"></div>
+        <div class="store-owner">
+          <div class="avatar" id="storeAvatar"></div>
+          <div>
+            <h1 id="storeTitle"></h1>
+            <p class="muted" id="storeBio"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- رأس صفحة المالك -->
+      <header class="page-head owner-only">
+        <div>
+          <h1>My Store</h1>
+          <p class="muted">Add, edit and remove your products.</p>
+        </div>
+        <div class="head-actions">
+          <a href="#" class="btn btn-outline" id="publicStoreLink">View public store</a>
+          <button type="button" class="btn btn-primary" id="addProductBtn">+ Add Product</button>
+        </div>
+      </header>
+
+      <section class="stats-row owner-only" id="statsRow"></section>
+
+      <div class="tabs" id="tabs"></div>
+      <div class="product-grid" id="productGrid"></div>
+
+      <div class="empty hidden" id="emptyState">
+        <div class="empty-icon">🛍️</div>
+        <p id="emptyText"></p>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ MODAL: Add / Edit Product ============ -->
+  <dialog id="productDialog" class="modal">
+    <form id="productForm" novalidate>
+      <h2 id="dialogTitle">Add Product</h2>
+
+      <div class="field">
+        <label for="productImage">Image</label>
+        <label class="upload-box" for="productImage">
+          <img id="imagePreview" class="hidden" alt="Preview" />
+          <span id="uploadHint">📷 Click to upload an image</span>
+        </label>
+        <input type="file" id="productImage" accept="image/*" class="hidden" />
+        <button type="button" class="btn btn-ghost btn-sm hidden" id="removeImageBtn">Remove image</button>
+      </div>
+
+      <div class="field">
+        <label for="nameInput">Name</label>
+        <input type="text" id="nameInput" maxlength="60" placeholder="e.g. Dark SaaS UI Kit" />
+        <small class="error" id="nameError"></small>
+      </div>
+
+      <div class="field">
+        <label for="descInput">Description</label>
+        <textarea id="descInput" maxlength="200" placeholder="Short description of your product"></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="priceInput">Price ($)</label>
+          <input type="number" id="priceInput" min="0" max="100000" step="0.01" placeholder="0.00" />
+          <small class="error" id="priceError"></small>
+        </div>
+        <div class="field">
+          <label for="categoryInput">Category</label>
+          <select id="categoryInput"></select>
+          <small class="error" id="categoryError"></small>
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-outline" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/storage.js"></script>
+  <script src="js/store.js"></script>
+</body>
+</html>

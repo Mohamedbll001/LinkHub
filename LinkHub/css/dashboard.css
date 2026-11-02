@@ -1,0 +1,171 @@
+/* =====================================================
+   dashboard.css — هيكل الصفحات المحمية (Sidebar + Main)
+   تستعمله: profile.html و store.html (وسيستعمله dashboard.html و community.html)
+   ===================================================== */
+
+/* 1) الشبكة الرئيسية: عمود للقائمة (260px) وعمود للمحتوى */
+.app {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr); /* minmax(0,..) يمنع المحتوى من توسيع الشبكة */
+  min-height: 100vh;
+}
+
+/* 2) Sidebar */
+.sidebar {
+  position: sticky; /* تبقى ثابتة أثناء التمرير */
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 18px;
+  background: rgba(20, 20, 42, 0.85);
+  border-right: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+}
+.sidebar .logo { margin-bottom: 18px; padding-left: 6px; }
+
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.side-link:hover { background: var(--glass-bg); color: var(--text); transform: translateX(3px); }
+.side-link.active {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.35);
+}
+.mobile-only { display: none; }
+
+/* صندوق المستخدم أسفل القائمة */
+.side-user {
+  margin-top: auto; /* يدفعه إلى أسفل القائمة */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+}
+.side-user .info { flex: 1; min-width: 0; line-height: 1.3; }
+.side-user strong {
+  display: block;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.side-user small { color: var(--text-muted); }
+.icon-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+}
+.icon-btn:hover { color: var(--text); background: var(--glass-bg); }
+
+/* 3) Avatar: دائرة. إذا لم توجد صورة نعرض التدرج + الحرف الأول */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient) center / cover no-repeat;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.avatar-lg { width: 96px; height: 96px; font-size: 2rem; }
+.avatar-xl { width: 110px; height: 110px; font-size: 2.4rem; }
+
+/* Cover: صورة الغلاف. الافتراضي = تدرج الثيم */
+.cover {
+  height: 160px;
+  border-radius: 18px;
+  background: var(--gradient) center / cover no-repeat;
+}
+
+/* 4) المحتوى */
+.main { padding: 36px 40px 60px; min-width: 0; }
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.page-head h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.head-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.card { padding: 24px; margin-bottom: 20px; }
+.card h2 { font-size: 1.1rem; margin-bottom: 16px; }
+
+/* 5) الحقول (Forms) */
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.field > label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  font: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.25);
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.field select option { background: var(--bg-soft); color: var(--text); }
+.field .hint { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); }
+.field .error { color: var(--danger); font-size: 0.8rem; min-height: 1em; }
+.field.invalid input,
+.field.invalid textarea,
+.field.invalid select { border-color: var(--danger); }
+
+/* 6) Responsive: على الشاشات الصغيرة تصبح القائمة شريطاً سفلياً */
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; padding-bottom: 76px; }
+  .sidebar {
+    position: fixed;
+    inset: auto 0 0 0;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2px;
+    padding: 8px 10px;
+    z-index: 60;
+    border-right: none;
+    border-top: 1px solid var(--glass-border);
+  }
+  .sidebar .logo, .side-user { display: none; }
+  .mobile-only { display: flex; }
+  .side-link {
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 4px;
+    font-size: 0.68rem;
+    text-align: center;
+  }
+  .side-link:hover { transform: none; }
+  .main { padding: 24px 16px 40px; }
+}
