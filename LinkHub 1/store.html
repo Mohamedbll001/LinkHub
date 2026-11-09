@@ -10,14 +10,8 @@
   <link rel="stylesheet" href="css/store.css" />
 </head>
 <body>
-  <!--
-    نفس الصفحة لها وضعان (يحدده store.js من الرابط):
-    - store.html            -> وضع المالك (owner): إضافة/تعديل/حذف
-    - store.html?u=mohamed  -> وضع الزائر (public): عرض + زر Buy
-    العناصر بكلاس owner-only تختفي عند الزائر، و public-only تظهر عنده فقط.
-  -->
 
-  <!-- ============ NAVBAR (للزائر فقط) ============ -->
+  <!-- ============ NAVBAR ============ -->
   <header class="navbar public-only">
     <div class="container">
       <a href="index.html" class="logo">
@@ -33,7 +27,7 @@
 
   <div class="app">
 
-    <!-- ============ SIDEBAR (للمالك فقط) ============ -->
+    <!-- ============ SIDEBAR ============ -->
     <aside class="sidebar owner-only">
       <a href="index.html" class="logo">
         <img src="assets/images/logo.png" alt="" class="logo-img" />
@@ -58,8 +52,6 @@
 
     <!-- ============ MAIN ============ -->
     <main class="main">
-
-      <!-- رأس المتجر للزائر: غلاف + صورة + اسم -->
       <section class="store-header public-only">
         <div class="cover" id="storeCover"></div>
         <div class="store-owner">
@@ -71,7 +63,6 @@
         </div>
       </section>
 
-      <!-- رأس صفحة المالك -->
       <header class="page-head owner-only">
         <div>
           <h1>My Store</h1>

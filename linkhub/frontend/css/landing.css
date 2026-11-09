@@ -1,0 +1,170 @@
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* nav bar */
+
+.navbar {
+    transition: background var(--transition), box-shadow var(--transition);
+    background: rgba(11, 11, 22, 0.92);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-links a {
+    position: relative;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+/* hero */
+
+.hero {
+    text-align: left;
+    padding: 90px 0 50px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero p {
+    margin: 0 0 34px;
+}
+
+.hero-buttons {
+    justify-content: flex-start;
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone {
+    width: min(300px, 80%);
+    padding: 0 22px 26px;
+    text-align: center;
+    overflow: hidden;
+    animation: float 5s ease-in-out infinite;
+}
+
+.phone-cover {
+    height: 90px;
+    margin: 0 -22px;
+    background: var(--gradient);
+}
+
+.phone-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: -38px 0 12px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.phone h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.phone p {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.phone-link {
+    margin-top: 10px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.hero .chip {
+    position: absolute;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.chip-1 {
+    top: 14%;
+    left: 0;
+    animation: float 4s ease-in-out infinite;
+}
+
+.chip-2 {
+    bottom: 14%;
+    right: 0;
+    animation: float 4.6s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+}
+
+/* stats */
+

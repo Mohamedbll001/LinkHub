@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- يجعل الموقع يتكيف مع الجوال -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="LinkHub: one page for your links, community and store." />
   <title>LinkHub — Your Links. Your Community. Your Store.</title>
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-
-  <!-- نضيف كلاس "js" مبكراً: إذا اشتغل JavaScript نُخفي العناصر .reveal ثم نُظهرها عند السكرول.
-       وإذا لم يشتغل JS تبقى كل العناصر ظاهرة (الصفحة لا تنكسر) -->
   <script>document.documentElement.classList.add("js");</script>
 
   <link rel="stylesheet" href="css/style.css" />
@@ -25,12 +21,10 @@
         <b>Link<span>Hub</span></b>
       </a>
 
-      <!-- زر القائمة: يظهر فقط في الجوال (CSS) -->
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- القائمة: في الشاشات الكبيرة سطر واحد، وفي الجوال لوحة تنزل من الأعلى -->
       <div class="nav-menu" id="navMenu">
         <nav class="nav-links">
           <a href="#features">Features</a>
@@ -38,7 +32,6 @@
           <a href="#themes">Themes</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <!-- نبدّل محتوى هذا div بالـ JavaScript حسب حالة تسجيل الدخول -->
         <div class="nav-actions" id="navActions">
           <a href="login.html" class="btn btn-outline">Login</a>
           <a href="register.html" class="btn btn-primary">Create Account</a>
@@ -56,7 +49,6 @@
           <span class="badge glass fade-up">✨ The all-in-one platform for creators</span>
           <h1 class="fade-up delay-1">
             One hub for your
-            <!-- هذه الكلمة تتبدل كل ثانيتين بالـ JavaScript -->
             <span class="gradient-text rotating" id="rotatingWord">links</span>
           </h1>
           <p class="fade-up delay-1">
@@ -69,7 +61,6 @@
           </div>
         </div>
 
-        <!-- معاينة صفحة المبدع (HTML + CSS فقط، بدون صور) -->
         <div class="hero-visual fade-up delay-2" aria-hidden="true">
           <div class="phone glass">
             <div class="phone-cover"></div>
@@ -87,7 +78,7 @@
       </div>
     </section>
 
-    <!-- ============ STATS (الأرقام تُحسب بالـ JS) ============ -->
+    <!-- ============ STATS ============ -->
     <section class="container">
       <div class="stats glass reveal">
         <div class="stat"><strong><span data-count="4">0</span></strong><span>tools in one</span></div>
@@ -155,19 +146,18 @@
       </div>
     </section>
 
-    <!-- ============ THEMES (تجربة حيّة: نضغط فيتغير لون الموقع كله) ============ -->
+    <!-- ============ THEMES ============ -->
     <section class="themes" id="themes">
       <div class="container">
         <div class="themes-box glass reveal">
           <h2>Make it yours</h2>
           <p class="muted">Pick a theme and watch this whole page change colors.</p>
-          <!-- الأزرار تُبنى بالـ JavaScript من قائمة THEMES في storage.js -->
           <div class="theme-buttons" id="themeButtons"></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ FAQ (accordion) ============ -->
+    <!-- ============ FAQ ============ -->
     <section class="faq" id="faq">
       <div class="container faq-container">
         <h2 class="section-title reveal">Frequently asked questions</h2>
@@ -234,10 +224,8 @@
     <p class="copyright">© 2026 LinkHub — Built with HTML, CSS &amp; JavaScript</p>
   </footer>
 
-  <!-- زر العودة للأعلى: يظهر بعد السكرول -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-  <!-- ترتيب الملفات مهم: storage.js أولاً لأن landing.js يستعمل دواله -->
   <script src="js/storage.js"></script>
   <script src="js/landing.js"></script>
 </body>
