@@ -10,10 +10,21 @@ section[id] {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 22px;
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 34px;
+    margin-top: 8px;
 }
 
 .nav-links {
@@ -47,24 +58,6 @@ section[id] {
     width: 100%;
 }
 
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: transform var(--transition), opacity var(--transition);
-}
-
 /* hero */
 
 .hero {
@@ -77,10 +70,12 @@ section[id] {
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .hero p {
     margin: 0 0 34px;
+    padding: 4px 5px;
 }
 
 .hero-buttons {
